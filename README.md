@@ -1,43 +1,25 @@
-# Next.js on Netlify Platform Starter
+✦ MustafaGene Next.js Architecture Starter ✦
+🌐 النظرة العامة (Executive Summary)
 
-[Live Demo](https://nextjs-platform-starter.netlify.app/)
+يمثل نظام MustafaGene منصة أساسية هندسية (Starter Architecture) فائقة التطور، صُممت خصيصاً لسد الفجوة بين تجربة التطوير الحديثة والنشر السحابي الموثوق. بالاعتماد على أحدث آليات التوجيه (App Router) وأدوات البنية التحتية السحابية المتقدمة (Netlify Core Primitives)، يحل هذا النظام معضلة تعقيد الإعدادات الأولية للمشاريع الكبرى. إنه يوفر بيئة عمل قياسية، قابلة للتطوير (Scalable)، وعالية الأداء، تُمكّن فرق الهندسة البرمجية من التركيز المباشر على بناء منطق الأعمال (Business Logic) بدلاً من استهلاك الموارد في تهيئة البنية التحتية، مع الالتزام الصارم بأعلى معايير جودة الكود البرمجي.
 
-A modern starter based on Next.js 16 (App Router), Tailwind, and [Netlify Core Primitives](https://docs.netlify.com/core/overview/#develop) (Edge Functions, Image CDN, Blob Store).
+⚙️ التقنيات والمعمارية (Architecture & Tech Stack)
 
-In this site, Netlify Core Primitives are used both implictly for running Next.js features (e.g. Route Handlers, image optimization via `next/image`, and more) and also explicitly by the user code.
+يعتمد النظام على هيكلية متكاملة من التقنيات الحديثة، صُممت كل منها لتؤدي دوراً محورياً في دورة حياة التطبيق:
 
-Implicit usage means you're using any Next.js functionality and everything "just works" when deployed - all the plumbing is done for you. Explicit usage is framework-agnostic and typically provides more features than what Next.js exposes.
+Next.js (App Router): يشكل العمود الفقري لمعمارية النظام، ويُستخدم لإدارة التوجيه المتقدم (Routing)، وتقديم العرض من جانب الخادم (SSR)، وتوليد المواقع الثابتة (SSG) لضمان سرعة استجابة لا تُضاهى.
+Netlify Core Primitives: البنية التحتية السحابية التي تدير عمليات النشر المستمر (CI/CD)، واستضافة الحواف (Edge Hosting)، لتوفير أقصى درجات التواجدية (High Availability).
+Tailwind CSS: محرك تصميم واجهات المستخدم القائم على المنفعة (Utility-First)، والذي يضمن بناء واجهات متجاوبة وخفيفة الوزن دون إثقال كاهل المتصفح بملفات تنسيق ضخمة.
+JavaScript (ES6+): لغة البرمجة الأساسية المُستخدمة في بناء منطق المكونات والتفاعل الديناميكي داخل النظام.
+ESLint & Prettier: أدوات تحليل وضبط جودة الكود الآلية، لفرض معايير صارمة في كتابة الأكواد (Code Standardization) ومنع التراكمات التقنية (Technical Debt).
+📜 شروط وأحكام الاستخدام (Terms & Conditions)
+هذا النظام مُصمم لأغراض هندسية وتطويرية.
+يُحظر استغلال البنية التحتية لهذا النظام أو مكوناته السحابية في تطوير أو نشر أي تطبيقات تنتهك القوانين السيبرانية الدولية أو تروج لمحتوى ضار أو خبيث.
+يجب الالتزام بالمعايير الأمنية المضمنة في الهيكلية؛ ويُمنع منعاً باتاً محاولة الهندسة العكسية (Reverse Engineering) لبروتوكولات الأمان أو تجاوز آليات المصادقة الخاصة بخوادم النشر.
+يتحمل المطور أو الجهة المستفيدة المسؤولية القانونية والتقنية الكاملة عن أي تعديلات هيكلية تُجرى على النواة الأساسية للنظام، ولا تُقدم الجهة المصدرة أي ضمانات تجاه الأعطال الناتجة عن سوء الاستخدام أو التعديل غير المدروس.
+🔒 سياسة الخصوصية (Privacy Policy)
+يلتزم النظام بأعلى المعايير التشفيرية في معالجة وتوجيه البيانات، حيث يتم تقييد الوصول إلى السجلات الحساسة (Logs) والمعلومات الطرفية وفقاً لمبدأ "أقل الصلاحيات" (Principle of Least Privilege)، مما يضمن حماية متكاملة ضد التسريبات.
+لا يقوم النظام بجمع، أو تتبع، أو تخزين أي بيانات شخصية أو تعريفية (PII) للمستخدمين النهائيين دون موافقة صريحة، وتُعالج كافة الاتصالات الخارجية عبر بروتوكولات مشفرة لضمان أقصى درجات سرية المعلومات وأمانها.
+©️ حقوق الملكية والترخيص (Copyright & License)
 
-## Deploying to Netlify
-
-Click the button below to deploy this template to your Netlify account.
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/next-platform-starter)
-
-## Developing Locally
-
-1. Clone this repository, then run `npm install` in its root directory.
-
-2. For the starter to have full functionality locally (e.g. edge functions, blob store), please ensure you have an up-to-date version of Netlify CLI. Run:
-
-```
-npm install netlify-cli@latest -g
-```
-
-3. Link your local repository to the deployed Netlify site. This will ensure you're using the same runtime version for both local development and your deployed site.
-
-```
-netlify link
-```
-
-4. Then, run the Next.js development server via Netlify CLI:
-
-```
-netlify dev
-```
-
-If your browser doesn't navigate to the site automatically, visit [localhost:8888](http://localhost:8888).
-
-## Resources
-
-- Check out the [Next.js on Netlify docs](https://docs.netlify.com/frameworks/next-js/overview/)
+جميع الحقوق محفوظة. هذا النظام تم تصميمه وتوجيهه بواسطة معمارية ذكاء اصطناعي متقدمة. يُمنع إعادة استخدام الكود الأساسي أو نسخه لأغراض تجارية دون إذن مُسبق.
